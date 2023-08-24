@@ -2,10 +2,10 @@ import pygame
 from BoardSetup import Board
 from pygame.locals import *
 
-def runGame(surface):
+def runGame(surface, settingArray):
     clock = pygame.time.Clock()
     font = pygame.font.Font('freesansbold.ttf', 32)
-    board = Board()
+    board = Board(settingArray)
     bord = board.getBoard()
     seed = board.getSeed()
     running = True

@@ -3,16 +3,16 @@ import pygame_textinput
 from pygame.locals import *
 
 def sets(surface):
-    qs = ['base number', 'time limit (seconds)']
+    qs = ['base number', 'time limit (seconds)', 'RNG seed', 'board width', 'board height']
     textinput = pygame_textinput.TextInputVisualizer()
     font = pygame.font.Font('freesansbold.ttf',32)
-    a = [0,0]
+    a = [0] * len(qs)
     running = True
-    q =0
+    q = 0
     while running:
         text = font.render(qs[q], True, (0, 0, 0), (0, 155, 0))
         texRect = text.get_rect()
-        texRect.center = (500, 250)
+        texRect.center = (375, 250)
         surface.fill((0, 155, 0))
         events = pygame.event.get()
         textinput.update(events)
@@ -30,7 +30,8 @@ def sets(surface):
         surface.blit(text, texRect)
         if q >= len(a):
             running = False
+            return a
         # Blit its surface onto the screen
-        surface.blit(textinput.surface, (500, 300))
+        surface.blit(textinput.surface, (350, 300))
 
         pygame.display.update()

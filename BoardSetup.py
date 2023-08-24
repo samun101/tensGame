@@ -1,22 +1,25 @@
 import random
 class Board():
-    def __init__(self, size = [10,10], time = 60, loop = False, seed = True):
-        if seed:
+    def __init__(self, r):
+        print(r)
+        if r[2] < 1:
             self.seed = random.randint(1, 2100000)
             print(self.seed)
+        else:
+            self.seed = r[2]
         self.rand = random.seed(self.seed)
-        self.max = 9
+        self.max = r[0]-1
         self.board = []
         self.min = 1
-        self.size = size
-        self.time = time
-        self.loop = loop
+        self.x = r[3]
+        self.y = r[4]
+        self.time = r[1]
         self.setBoard()
 
     def setBoard(self):
-        for row in range(self.size[0]):
+        for row in range(self.x):
             row = []
-            for col in range(self.size[1]):
+            for col in range(self.y):
                 bit = self.makeBit()
                 row.append(bit)
             self.board.append(row)
@@ -28,6 +31,6 @@ class Board():
         return self.seed
 
     def makeBit(self):
-        bit = random.randint(1, 9)
+        bit = random.randint(self.min, self.max)
         return bit
 

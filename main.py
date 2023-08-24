@@ -4,6 +4,8 @@ from pygame.locals import *
 from Settings import sets
 from game import runGame
 
+settingArray = []
+
 def text_objects(text, font):
     textSurface = font.render(text, True, (0,0,0))
     return textSurface, textSurface.get_rect()
@@ -17,10 +19,11 @@ def buttonSet(surface,msg,x,y,w,h,ic,ac,act):
         pygame.draw.rect(surface, ac,(x,y,w,h))
 
         if click[0] == True:
-            if act == 0:
-                runGame(surface)
             if act == 1:
-                sets(surface)
+                global settingArray
+                settingArray = sets(surface)
+            if act == 0:
+                runGame(surface, settingArray)
     else:
         pygame.draw.rect(surface, ic,(x,y,w,h))
 
