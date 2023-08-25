@@ -20,7 +20,7 @@ def sets(surface):
             if event.type == KEYDOWN:
                 if event.key == K_RETURN:
                     inp = textinput.value
-                    if inp:
+                    if inp.isnumeric():
                         a[q] = int(inp)
                     else:
                         a[q] = 10
