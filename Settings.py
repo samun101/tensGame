@@ -19,7 +19,11 @@ def sets(surface):
         for event in events:
             if event.type == KEYDOWN:
                 if event.key == K_RETURN:
-                    a[q] = int(textinput.value)
+                    inp = textinput.value
+                    if inp:
+                        a[q] = int(inp)
+                    else:
+                        a[q] = 10
                     print(a)
                     textinput = pygame_textinput.TextInputVisualizer()
                     q += 1
