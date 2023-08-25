@@ -4,7 +4,7 @@ from pygame.locals import *
 from Settings import sets
 from game import runGame
 
-settingArray = []
+settingArray = [10] * 5
 
 def text_objects(text, font):
     textSurface = font.render(text, True, (0,0,0))

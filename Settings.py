@@ -6,7 +6,7 @@ def sets(surface):
     qs = ['base number', 'time limit (seconds)', 'RNG seed', 'board width', 'board height']
     textinput = pygame_textinput.TextInputVisualizer()
     font = pygame.font.Font('freesansbold.ttf',32)
-    a = [0] * len(qs)
+    a = [10] * len(qs)
     running = True
     q = 0
     while running:
