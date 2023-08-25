@@ -54,6 +54,10 @@ def runGame(surface, settingArray):
         texRect = text.get_rect()
         texRect.center = (600, 725)
         surface.blit(text, texRect)
+        text = font.render('score: ' + str(board.getScore()), True, (0, 0, 0), (0, 155, 0))
+        texRect = text.get_rect()
+        texRect.center = (400, 725)
+        surface.blit(text, texRect)
         if sel:
             mpos = pygame.mouse.get_pos()
             if mpos[0] > xSel:

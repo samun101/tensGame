@@ -30,6 +30,8 @@ class Board():
         return self.board
     def getSeed(self):
         return self.seed
+    def getScore(self):
+        return self.score
 
     def makeBit(self):
         bit = random.randint(self.min, self.max)
@@ -58,6 +60,8 @@ class Board():
         if sum % (self.max+1) == 0:
             for x in range(sx, ex):
                 for y in range(sy, ey):
-                    self.board[x][y] =0
-        print(self.max+1)
+                    if self.board[x][y]>0:
+                        self.board[x][y] = 0
+                        self.score += 1
+        print(self.score)
         print(sum)
